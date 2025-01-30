@@ -14,7 +14,14 @@ public class BinarySearchRotatedArray {
          * that means the array is not rotated at all or
          * the smallest index is at position 0.(remember the array is sorted)
          */
-        
+
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == target){
+                return i;
+            }
+        }
+        return -1;
+
     }
 
     /**
@@ -28,7 +35,20 @@ public class BinarySearchRotatedArray {
      */
     private int binarySearch(int[] arr, int left, int right, int target){
         
-        return -1;
+       if ((left + right)/2 < target){
+        for (int i = right; i >= (left +right)/2; i--){
+            if (arr[i] == target){
+                return i;
+            }
+        }
+       }
+       for (int i = left; i <= (left +right)/2; i++){
+        if (arr[i] == target){
+            return i;
+        }
+
         
+    }
+    return -1;
     }
 }
